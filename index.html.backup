@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!--
+  Transit by TEMPLATED
+  templated.co @templatedco
+  Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movies Database</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/skel.min.js"></script>
+  <script src="js/skel-layers.min.js"></script>
+  <script src="js/init.js"></script>
+  <noscript>
+    <link rel="stylesheet" href="css/skel.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style-xlarge.css" />
+  </noscript>
+</head>
+<body class="landing">
+
+  <!-- Header -->
+  <header id="header">
+    <h1><a href="index.html">Home</a></h1>
+    <nav id="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="generic.html">Browse</a></li>
+        <li><a href="elements.html">Element</a></li>
+        <li><a href="#" class="button special">Search</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <section id="banner">
+    <h2>Deadlock Movies</h2>
+    <p>Where you can brows or search for movies information</p>
+    <ul class="actions">
+      <li>
+        <a href="#" class="button big">Home</a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- One -->
+  <section id="one" class="wrapper style1 special">
+    <div class="container">
+      <header class="major">
+        <h2>Navigation</h2>
+        <p>Simple and effective</p>
+      </header>
+      <div class="row 150%">
+        <div class="4u 12u$(medium)">
+          <section class="box">
+            <i class="icon big rounded color1 fa-cloud"></i>
+            <h3>Home</h3>
+            <p>Statement</p>
+          </section>
+        </div>
+        <div class="4u 12u$(medium)">
+          <section class="box">
+            <i class="icon big rounded color9 fa-desktop"></i>
+            <h3>Browse</h3>
+            <p>Show all the movies in the current database</p>
+          </section>
+        </div>
+        <div class="4u$ 12u$(medium)">
+          <section class="box">
+            <i class="icon big rounded color6 fa-search"></i>
+            <h3>Search</h3>
+            <p>Search our database to look for a movie</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two -->
+  <section id="two" class="wrapper style2 special">
+    <div class="container">
+      <header class="major">
+        <h2>Member in Team Deadlock</h2>
+        <p>Show all member in the team. For CMPE 226</p>
+      </header>
+      <section class="profiles">
+        <div class="row">
+          <section class="3u 6u(medium) 12u$(xsmall) profile">
+            <img src="images/profile_placeholder.gif" alt="" />
+            <h4>Aaron Lam</h4>
+            <p>Software Engineer</p>
+          </section>
+          <section class="3u 6u$(medium) 12u$(xsmall) profile">
+            <img src="images/profile_placeholder.gif" alt="" />
+            <h4>Name</h4>
+            <p>Title</p>
+          </section>
+          <section class="3u 6u$(medium) 12u$(xsmall) profile">
+            <img src="images/profile_placeholder.gif" alt="" />
+            <h4>Name</h4>
+            <p>Title</p>
+          </section>
+          <section class="3u 6u$(medium) 12u$(xsmall) profile">
+            <img src="images/profile_placeholder.gif" alt="" />
+            <h4>Name</h4>
+            <p>Title</p>
+          </section>
+          <section class="3u 6u$(medium) 12u$(xsmall) profile">
+            <img src="images/profile_placeholder.gif" alt="" />
+            <h4>Name</h4>
+            <p>Title</p>
+          </section>
+        </div>
+      </section>
+      <footer>
+        <p>Credit: Using templace Transit by TEMPLATED. Database build base on IMDB </p>
+        <ul class="actions">
+          <li>
+            <a href="#" class="button big">Go to Top</a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Three -->
+  <section id="three" class="wrapper style3 special">
+    <div class="container">
+      <header class="major">
+        <h2>Contact Us</h2>
+        <p>contact form</p>
+      </header>
+    </div>
+    <div class="container 50%">
+      <form action="#" method="post">
+        <div class="row uniform">
+          <div class="6u 12u$(small)">
+            <input name="name" id="name" value="" placeholder="Name" type="text">
+          </div>
+          <div class="6u$ 12u$(small)">
+            <input name="email" id="email" value="" placeholder="Email" type="email">
+          </div>
+          <div class="12u$">
+            <textarea name="message" id="message" placeholder="Message" rows="6"></textarea>
+          </div>
+          <div class="12u$">
+            <ul class="actions">
+              <li><input value="Send Message" class="special big" type="submit"></li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container">
+      <section class="links">
+        <div class="row">
+          <section class="3u 6u(medium) 12u$(small)">
+            <h3>Website Directory</h3>
+            <ul class="unstyled">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Browse</a></li>
+              <li><a href="#">Search</a></li>
+            </ul>
+          </section>
+          <section class="3u 6u$(medium) 12u$(small)">
+            <h3>About Us</h3>
+            <ul class="unstyled">
+              <li><a href="#">Team Deadlock</a></li>
+            </ul>
+          </section>
+          <section class="3u 6u(medium) 12u$(small)">
+            <h3>Team Members</h3>
+            <ul class="unstyled">
+              <li><a href="#">Aaron Lam</a></li>
+              <li><a href="#">Name</a></li>
+              <li><a href="#">Name</a></li>
+              <li><a href="#">Name</a></li>
+              <li><a href="#">Name</a></li>
+            </ul>
+          </section>
+          <section class="3u$ 6u$(medium) 12u$(small)">
+            <h3>News</h3>
+            <ul class="unstyled">
+              <li><a href="#">Updated 02/12/2017</a></li>
+            </ul>
+          </section>
+        </div>
+      </section>
+      <div class="row">
+        <div class="8u 12u$(medium)">
+          <ul class="copyright">
+            <li>&copy; Deadlock. All rights reserved.</li>
+            <li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+            <li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+          </ul>
+        </div>
+        <div class="4u$ 12u$(medium)">
+          <ul class="icons">
+            <li>
+              <a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
+            </li>
+            <li>
+              <a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
+            </li>
+            <li>
+              <a class="icon rounded fa-google-plus"><span class="label">Google+</span></a>
+            </li>
+            <li>
+              <a class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -14,23 +14,29 @@
           <section class="3u 6u$(medium) 12u$(small)">
             <h3>About Us</h3>
             <ul class="unstyled">
-              <li><a href="#">Team Deadlock</a></li>
+              <li><a href="aboutus.php">Team Deadlock</a></li>
             </ul>
           </section>
           <section class="3u 6u(medium) 12u$(small)">
             <h3>Team Members</h3>
             <ul class="unstyled">
-              <li><a href="#">Aaron Lam</a></li>
-              <li><a href="#">Name</a></li>
-              <li><a href="#">Name</a></li>
-              <li><a href="#">Name</a></li>
-              <li><a href="#">Name</a></li>
+              <?php
+              require_once "mysql.php";
+              $query = "SELECT * FROM `TeamMember`";
+              $stmt = $conn->prepare($query); 
+              $stmt->execute();
+              $result = $stmt->fetchAll();
+              foreach ($result as $row) {
+                echo "<li><a href=\"" . $row["personal_url"] . "\">" . $row["firstname"] . $row["lastname"] . "</a></li>";
+              }
+              ?>
             </ul>
           </section>
           <section class="3u$ 6u$(medium) 12u$(small)">
             <h3>News</h3>
             <ul class="unstyled">
-              <li><a href="#">Updated 02/12/2017</a></li>
+              <li>Updated 02/12/2017</li>
+              <li>Add more feature 05/08/2017</li>
             </ul>
           </section>
         </div>

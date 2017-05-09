@@ -6,7 +6,7 @@ $user = 'readOnly';
 $password = 'readOnlyP@$$';
 
 try {
-  $mysql = new PDO($dsn, $user, $password);
+  $conn = new PDO($dsn, $user, $password);
 } catch (PDOException $e) {
   echo 'Connection failed: ' . $e->getMessage();
 }

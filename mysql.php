@@ -1,9 +1,9 @@
 <?php
 
 /* Connect to a MySQL database using driver invocation */
-$dsn = 'mysql:dbname=cmpe226;host=127.0.0.1';
-$user = 'readOnly';
-$password = 'readOnlyP@$$';
+$dsn = 'mysql:dbname=cmpe226;host=localhost';
+$user = 'deadlock';
+$password = 'sesame';
 
 try {
   $conn = new PDO($dsn, $user, $password);

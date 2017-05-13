@@ -53,6 +53,7 @@ function setActive($currentPage, $compare) {
         <li><a href="index.php"  <?php setActive($TITLE, "Home"); ?> > Home </a></li>
         <li><a href="browse.php" <?php setActive($TITLE, "Browse"); ?> > Browse </a></li>
         <li><a href="search.php" <?php setActive($TITLE, "Search"); ?> > Search </a></li>
+        <li><a href="analysis.php"  <?php setActive($TITLE, "Analysis"); ?> > Analysis </a></li>
         <li><a href="aboutus.php"  <?php setActive($TITLE, "About"); ?> > About Us </a></li>
         <!-- <li><a href="#" class="button special">Search</a></li> -->
       </ul>

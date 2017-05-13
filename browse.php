@@ -22,7 +22,35 @@ function pagination($page,$num_page)
 
 
 <section id="banner">
-  <h2>Brows All Movies In Database</h2>
+  <h2>Browse All Movies In Database</h2>
+  <ul class="actions">
+    <li>
+     <form action="sort.php" method="post" >
+        <input type="hidden" name="type" value="rating" />
+        <input type="hidden" name="dir" value="desc" />
+        <input type="hidden" name="page" value="1" />
+        <input type="submit" class="btn btn-success" value="Sorted by ratings from high to low" />
+     </form>
+     <form action="sort.php" method="post" >
+        <input type="hidden" name="type" value="rating" />
+        <input type="hidden" name="dir" value="asc" />
+        <input type="hidden" name="page" value="1" />
+        <input type="submit" class="btn btn-success" value="Sorted by ratings from low to high" />
+     </form>
+     <form action="sort.php" method="post" >
+        <input type="hidden" name="type" value="year" />
+        <input type="hidden" name="dir" value="desc" />
+        <input type="hidden" name="page" value="1" />
+        <input type="submit" class="btn btn-success" value="Sorted by year from new to old" />
+     </form>
+     <form action="sort.php" method="post" >
+        <input type="hidden" name="type" value="year" />
+        <input type="hidden" name="dir" value="asc" />
+        <input type="hidden" name="page" value="1" />
+        <input type="submit" class="btn btn-success" value="Sorted by year from old to new" />
+     </form>
+    </li>
+  </ul>
 </section>
 
 <section>
@@ -47,4 +75,4 @@ function pagination($page,$num_page)
 </section>
 
 
-<?php require_once "fooder.php"; ?>
+<?php require_once "footer.php"; ?>

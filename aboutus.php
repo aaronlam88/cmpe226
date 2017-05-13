@@ -5,4 +5,4 @@
 
 
 
-<?php require_once "fooder.php"; ?>
+<?php require_once "footer.php"; ?>

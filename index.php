@@ -82,7 +82,6 @@
       </div>
     </section>
     <footer>
-      <p>Credit: Using templace Transit by TEMPLATED. Database build base on IMDB </p>
       <ul class="actions">
         <li>
           <a href="#" class="button big">Back to Top</a>
@@ -93,4 +92,4 @@
 </section>
 
 
-<?php require_once "fooder.php"; ?>
+<?php require_once "footer.php"; ?>

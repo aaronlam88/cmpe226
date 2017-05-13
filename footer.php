@@ -1,6 +1,8 @@
   <!-- Footer -->
   <footer id="footer">
+
     <div class="container">
+
       <section class="links">
         <div class="row">
           <section class="3u 6u(medium) 12u$(small)">
@@ -27,7 +29,9 @@
               $stmt->execute();
               $result = $stmt->fetchAll();
               foreach ($result as $row) {
-                echo "<li><a href=\"" . $row["personal_url"] . "\">" . $row["firstname"] . $row["lastname"] . "</a></li>";
+                echo "
+                <li><a href=\"" . $row["personal_url"] . "\">" . $row["firstname"] . $row["lastname"] . "</a></li>
+                ";
               }
               ?>
             </ul>

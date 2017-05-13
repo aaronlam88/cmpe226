@@ -12,7 +12,7 @@
   <hr>
   <h3 class="text-center"> Search for movie(s) that HAVING more than 1 genre </h3>
   <hr>
-  <!-- Form 1 -->
+  <!-- Form 1 Search for a single movie by IMDB ID-->
   <form class="form-horizontal" method="post" action="searchResult.php">
     <fieldset>
 
@@ -21,10 +21,10 @@
 
       <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="textinput">IMDB ID</label>  
+        <label class="col-md-4 control-label" for="textinput">IMDB ID</label>
         <div class="col-md-4">
           <input id="imdbID" name="imdbID" type="text" placeholder="tt0884732" class="form-control input-md">
-          <span class="help-block">imdb id begin with tt and follow by 7 digits</span>  
+          <span class="help-block">imdb id begin with tt and follow by 7 digits</span>
         </div>
       </div>
 
@@ -43,7 +43,7 @@
 
   <hr>
 
-  <!-- Form 2 -->
+  <!-- Form 2 Search for a few movies by title and year-->
   <form class="form-horizontal" method="post" action="searchResult.php">
     <fieldset>
 
@@ -52,17 +52,17 @@
 
       <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="textinput">Title</label>  
+        <label class="col-md-4 control-label" for="textinput">Title</label>
         <div class="col-md-4">
           <input id="textinput" name="title" type="text" placeholder="Cinderella" class="form-control input-md">
-          <span class="help-block">Title of the movie</span>  
+          <span class="help-block">Title of the movie</span>
         </div>
       </div>
       <div class="form-group">
-        <label class="col-md-4 control-label" for="textinput">Year</label>  
+        <label class="col-md-4 control-label" for="textinput">Year</label>
         <div class="col-md-4">
           <input id="textinput" name="year" type="text" placeholder="2015" class="form-control input-md">
-          <span class="help-block">The Release year</span>  
+          <span class="help-block">The Release year</span>
         </div>
       </div>
 
@@ -81,7 +81,91 @@
 
   <hr>
 
-  <!-- Form 3 -->
+  <!-- Form 3 Search for multiple movies by actors' and directors' name-->
+  <form class="form-horizontal" method="post" action="searchResult.php">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend class="text-center">Search for multiple movies by actors' and directors' name</legend>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Actors' name</label>
+        <div class="col-md-4">
+          <input id="textinput" name="actor" type="text" placeholder="John" class="form-control input-md">
+          <span class="help-block">Actors' or Actress' firstname or lastname</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Directors' name</label>
+        <div class="col-md-4">
+          <input id="textinput" name="director" type="text" placeholder="Tom" class="form-control input-md">
+          <span class="help-block">Directors' firstname or lastname</span>
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for=""></label>
+        <div class="col-md-4">
+          <input type="hidden" name="type" value="actor">
+          <button  type="submit" id="" name="" class="btn btn-primary">Search</button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+  <!-- End form 3 -->
+
+  <hr>
+
+  <!-- Form 4 Search for multiple movies by country and ratings-->
+  <form class="form-horizontal" method="post" action="searchResult.php">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend class="text-center">Search for multiple movies by country and ratings</legend>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Country</label>
+        <div class="col-md-4">
+          <input id="textinput" name="country" type="text" placeholder="USA" class="form-control input-md">
+          <span class="help-block">Country name</span>
+        </div>
+      </div>
+
+      <!-- Select Basic -->
+      <div class="form-group">
+      <label class="col-md-4 control-label" for="rating">Ratings</label>
+        <div class="col-md-4">
+          <select id="rating" name="rating[]" class="form-control">
+            <option value="" selected>Not selected</option>
+            <option value="higher">higher than 9.0</option>
+            <option value="8">8.0-9.0</option>
+            <option value="7">7.0-8.0</option>
+            <option value="6">6.0-7.0</option>
+            <option value="lower">lower than 6.0</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for=""></label>
+        <div class="col-md-4">
+          <input type="hidden" name="type" value="country">
+          <button  type="submit" id="" name="" class="btn btn-primary">Search</button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+  <!-- End form 4 -->
+
+  <hr>
+
+  <!-- Form 5  Search for multiple movies by genre and year-->
   <form class="form-horizontal" method="post" action="searchResult.php">
     <fieldset>
 
@@ -94,67 +178,67 @@
         <div class="col-md-4">
           <input type="checkbox"
           name="genre[]"
-          value="Action"> Action
+          value="Action"> <label>Action</label>
           <input type="checkbox"
           name="genre[]"
-          value="Adventure"> Adventure
+          value="Adventure"> <label>Adventure</label>
           <input type="checkbox"
           name="genre[]"
-          value="Biography"> Biography
-          <input type="checkbox"
-          name="genre[]"
-          value="Comedy"> Comedy
+          value="Biography"> <label>Biography</label>
           <hr>
           <input type="checkbox"
           name="genre[]"
-          value="Crime"> Crime
+          value="Comedy"> <label>Comedy</label>
           <input type="checkbox"
           name="genre[]"
-          value="Drama"> Drama
+          value="Crime"> <label>Crime</label>
           <input type="checkbox"
           name="genre[]"
-          value="Fantasy"> Fantasy
-          <input type="checkbox" 
-          name="genre[]"
-          value="Family"> Family
+          value="Drama"> <label>Drama</label>
           <hr>
           <input type="checkbox"
           name="genre[]"
-          value="Historical"> Historical
+          value="Fantasy"> <label>Fantasy</label>
           <input type="checkbox"
           name="genre[]"
-          value="Horror"> Horror
+          value="Family"> <label>Family</label>
           <input type="checkbox"
           name="genre[]"
-          value="Mystery"> Mystery
-          <input type="checkbox"
-          name="genre[]"
-          value="Romance"> Romance
+          value="Historical"> <label>Historical</label>
           <hr>
           <input type="checkbox"
           name="genre[]"
-          value="Sci-Fi"> Sci-Fi
+          value="Horror"> <label>Horror</label>
           <input type="checkbox"
           name="genre[]"
-          value="Short"> Short
+          value="Mystery"> <label>Mystery</label>
           <input type="checkbox"
           name="genre[]"
-          value="Sport"> Sport
-          <input type="checkbox"
-          name="genre[]"
-          value="Thriller"> Thriller
+          value="Romance"> <label>Romance</label>
           <hr>
           <input type="checkbox"
           name="genre[]"
-          value="War"> War
+          value="Sci-Fi"> <label>Sci-Fi</label>
           <input type="checkbox"
           name="genre[]"
-          value="Western"> Western
-        </label>
+          value="Short"> <label>Short</label>
+          <input type="checkbox"
+          name="genre[]"
+          value="Sport"> <label>Sport</label>
+          <hr>
+          <input type="checkbox"
+          name="genre[]"
+          value="Thriller"> <label>Thriller</label>
+          <input type="checkbox"
+          name="genre[]"
+          value="War"> <label>War</label>
+          <input type="checkbox"
+          name="genre[]"
+          value="Western"> <label>Western</label>
       </div>
     </div>
 
-    <!-- Select Basic -->
+    <!-- Select year -->
     <div class="form-group">
       <label class="col-md-4 control-label" for="year">Year</label>
       <div class="col-md-4">
@@ -181,8 +265,43 @@
 
   </fieldset>
 </form>
+<!-- End form 5 -->
 
-<!-- End form 3 -->
+<!-- Form 6 Search by movie IMDB ID and Award year -->
+<form class="form-horizontal" method="post" action="searchResult.php">
+  <fieldset>
+
+    <!-- Form Name -->
+    <legend class="text-center">Search by movie IMDB ID and award year </legend>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput">Movie IMDB </label>
+      <div class="col-md-4">
+        <input id="textinput" name="imdbID" type="text" placeholder="tt0884732" class="form-control input-md">
+        <span class="help-block">imdb id begin with tt and follow by 7 digits</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput">Award year</label>
+      <div class="col-md-4">
+        <input id="textinput" name="awardYear" type="text" placeholder="2010" class="form-control input-md">
+        <span class="help-block">Award year want to search</span>
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for=""></label>
+      <div class="col-md-4">
+        <input type="hidden" name="type" value="awardYear">
+        <button  type="submit" id="" name="" class="btn btn-primary">Search</button>
+      </div>
+    </div>
+
+  </fieldset>
+</form>
+<!-- End form 6-->
 
 
-<?php require_once "fooder.php"; ?>
+<?php require_once "footer.php"; ?>

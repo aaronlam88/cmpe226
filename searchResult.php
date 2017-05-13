@@ -1,19 +1,18 @@
-<?php
-header('Content-Type: text/html; charset=utf-8'); 
+  <?php
 
 $debug = 0;
 
 // Get connection to database
 $database = "cmpe226";
 $username = "deadlock";
-$password = "sesame"; 
+$password = "sesame";
 
 try {
   // Connect to the database.
   $conn = new PDO("mysql:host=localhost; dbname=$database", "$username", "$password");
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  if($debug) echo "Connected successfully"; 
+  if($debug) echo "Connected successfully";
 }
 catch(PDOException $e)
 {
@@ -29,8 +28,9 @@ function printTable($array) {
       <th>Poster</th>
       <th>Title</th>
       <th>Year</th>
+      <th>Country</th>
       <th>Genre</th>
-      <th>Director</th>
+      <th>Directors</th>
       <th>Actors</th>
       <th>IMDB Rating</th>
     </tr>
@@ -38,18 +38,20 @@ function printTable($array) {
     <tbody>";
 
   foreach ($array as $row) {
-    $Poster = $row["Poster"];
-    $Title = mb_convert_encoding($row["Title"], 'utf-8', 'iso-8859-1');
-    $Year = $row["Year"];
-    $Genre = $row["Genre"];
-    $Director = mb_convert_encoding($row["Director"], 'utf-8', 'iso-8859-1');
-    $Actors = mb_convert_encoding($row["Actors"], 'utf-8', 'iso-8859-1');
-    $imdbRating = $row["imdbRating"];
+    $Poster = $row["poster"];
+    $Title = mb_convert_encoding($row["title"], 'utf-8', 'iso-8859-1');
+    $Year = $row["year"];
+    $Country = $row["country"];
+    $Genre = $row["genre"];
+    $Director = mb_convert_encoding($row["directors"], 'utf-8', 'iso-8859-1');
+    $Actors = mb_convert_encoding($row["actors"], 'utf-8', 'iso-8859-1');
+    $imdbRating = $row["rating"];
     echo "
       <tr>
         <td> <img class=\"img-thumbnail\" width=\"80\" alt=\"Poster\" src=\"$Poster\"> </td>
         <td> $Title </td>
         <td> $Year </td>
+        <td> $Country </td>
         <td> $Genre </td>
         <td> $Director </td>
         <td> $Actors </td>
@@ -92,18 +94,54 @@ $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 switch ($type) {
   case 'imdbID':
     $imdbID = $_POST["imdbID"];
-    $query="SELECT Poster, Title, Year, Genre, Director, Actors, imdbRating FROM cmpe226.Movies WHERE imdbID = \"$imdbID\"";
-    $stmt = $conn->prepare($query); 
+    $query="SELECT poster, title, year, country, genre, directors, actors, rating FROM cmpe226.Movies_BACKUP WHERE movie_id = \"$imdbID\"";
+    $stmt = $conn->prepare($query);
     $stmt->execute();
     $result = $stmt->fetchAll();
     printTable($result);
     break;
+
   case 'title':
     $title = $_POST["title"];
     $year = $_POST["year"];
-    $query="SELECT Poster, Title, Year, Genre, Director, Actors, imdbRating FROM cmpe226.Movies WHERE Title like \"%$title%\"";
-    if(strcmp($year, "") != 0) $query = $query . " AND Year = \"$year\";"; 
-    $stmt = $conn->prepare($query); 
+    $query="SELECT poster, title, year, country, genre, directors, actors, rating FROM cmpe226.Movies_BACKUP WHERE title like \"%$title%\"";
+    if(strcmp($year, "") != 0) $query = $query . " AND year = \"$year\";";
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    printTable($result);
+    break;
+
+  case 'actor':
+    $actor = $_POST["actor"];
+    $director = $_POST["director"];
+    $query="SELECT poster, title, year, country, genre, directors, actors, rating FROM cmpe226.Movies_BACKUP WHERE actors like \"%$actor%\"";
+    if(strcmp($director, "") != 0) $query = $query . " AND directors like \"%$director%\";";
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    printTable($result);
+    break;
+
+  case 'country':
+    $country = $_POST["country"];
+    $rating = $_POST["rating"];
+    $rating = $rating[0];
+    $query="SELECT poster, title, year, country, genre, directors, actors, rating FROM cmpe226.Movies_BACKUP WHERE country like \"%$country%\"";
+    if(strcmp($rating, "lower") == 0) {
+      $query = $query . " AND rating <=\"6\" ";
+    }
+
+    if (strcmp($rating, "higher") == 0) {
+      $query = $query . " AND rating >=\"9\" ";
+    }
+
+    if (is_numeric($rating)) {
+      $end = $rating + 1;
+      $query = $query . " AND rating BETWEEN \"$rating\" AND \"$end\" ";
+    }
+
+    $stmt = $conn->prepare($query);
     $stmt->execute();
     $result = $stmt->fetchAll();
     printTable($result);
@@ -115,35 +153,49 @@ switch ($type) {
     $year = $year[0];
     $genreSearch = "";
     $len = count($genre);
-    for ($i=0; $i < $len; $i++) { 
-      $genreSearch = $genreSearch . " Genre LIKE \"" . $genre[$i] . "\" ";
+    for ($i=0; $i < $len; $i++) {
+      $genreSearch = $genreSearch . " genre LIKE \"" . $genre[$i] . "\" ";
       if($i != $len - 1) {
         $genreSearch = $genreSearch . " OR ";
       }
     }
 
-    $query="SELECT Poster, Title, Year, Genre, Director, Actors, imdbRating FROM cmpe226.Movies WHERE ( $genreSearch ) ";
-    
+    $query="SELECT poster, title, year, country, genre, directors, actors, rating FROM cmpe226.Movies_BACKUP WHERE ( $genreSearch ) ";
+
     if(strcmp($year, "older") == 0) {
-      $query = $query . " AND Year <=\"1970\" ";
-    } 
+      $query = $query . " AND year <=\"1970\" ";
+    }
 
     if (strcmp($year, "newer") == 0) {
-      $query = $query . " AND Year >=\"2010\" ";
+      $query = $query . " AND year >=\"2010\" ";
     }
 
     if (is_numeric($year)) {
       $end = $year + 10;
-      $query = $query . " AND Year BETWEEN \"$year\" AND \"$end\" ";
+      $query = $query . " AND year BETWEEN \"$year\" AND \"$end\" ";
     }
 
-    $stmt = $conn->prepare($query); 
+    $stmt = $conn->prepare($query);
     $stmt->execute();
     $result = $stmt->fetchAll();
     printTable($result);
     break;
   default:
     if($debug) echo "default option";
+    break;
+
+
+  case 'awardYear':
+    $imdbID = $_POST["imdbID"];
+    $awardYear = $_POST["awardYear"];
+    $query="SELECT poster, title, year, country, genre, directors, actors, rating FROM cmpe226.Movies_BACKUP
+            left join cmpe226.Awards on Movies_BACKUP.movie_id = Awards.movie_id
+            left join cmpe226.Movie_Award on Movies_BACKUP.movie_id = Movie_Award.movie_id
+            WHERE Movies_BACKUP.movie_id = \"$imdbID\" AND Movie_Award.year = \"$awardYear\"";
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    printTable($result);
     break;
 }
 
